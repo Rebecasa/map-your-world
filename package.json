@@ -1,5 +1,12 @@
 {
   "name": "map-your-world",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^3.1.1",
+    "@rails/webpacker": "3.5",
+    "mapbox-gl": "^0.53.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
