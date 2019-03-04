@@ -1,0 +1,9 @@
+.links-map {
+  color: $headers-color;
+  transition: all 0.3s ease;
+  &:hover {
+    color: $headers-color;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}

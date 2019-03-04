@@ -1,0 +1,10 @@
+.btn-map {
+  background-color: $headers-color;
+  color: white;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  &:hover {
+    color: white;
+    opacity: 0.7;
+  }
+}
