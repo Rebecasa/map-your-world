@@ -1,0 +1,18 @@
+<%= render 'shared/navbar' %>
+
+<div class="displayed-map">
+  <div
+    id="map-show"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+   <div id="lat"><%= @country.latitude %></div>
+   <div id="long"><%= @country.longitude%></div>
+
+  <div class="my-visited-places">
+    <p class="count"> You have visited: <%= @my_visited_places.count %> of <%= @countries.count %> countries</p>
+    <div class ="visited">
+      <p><%="Have you visited #{@country.name}?" %></p>
+    </div>
+  </div>
+</div>
