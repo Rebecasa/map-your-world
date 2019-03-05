@@ -1,7 +1,7 @@
 class CountryController < ApplicationController
   def index
     @countries = Country.all
-     @markers = @countries.map do |country|
+    @markers = @countries.map do |country|
       {
         lng: country.longitude,
         lat: country.latitude

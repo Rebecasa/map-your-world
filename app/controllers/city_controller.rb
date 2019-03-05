@@ -1,2 +1,2 @@
-class CityController < ApplicationController
+class CitiesController < ApplicationController
 end
