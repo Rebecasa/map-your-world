@@ -4,23 +4,28 @@ class CountryController < ApplicationController
     @markers = @countries.map do |country|
       {
         lng: country.longitude,
-        lat: country.latitude
+        lat: country.latitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_window", locals: { country: country }) }
       }
     end
+    @my_visited_places = []
+    @my_planned_places = []
+    @countries.each do |country|
+    @my_visited_places << country if country.visited?
+    @my_planned_places << country if country.planned?
+  end
   end
 
   def show
-    @my_visited_places = []
-    @my_planned_places = []
-    @countries = Country.all
     @country = Country.find(params[:id])
-    @my_visited_places << @country if @country.visited?
-    @my_planned_places << country if @country.planned?
   end
 
   def update
     @country = Country.find(params[:id])
-    @country.update(country_params)
+    if @country.update(country_params)
+      redirect_to @country
+    end
+
   end
 
   def country_params

@@ -1,15 +1,31 @@
 
-
-<div
-  id="map"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
->
-    <div class="link-to-country">
-     <%@markers.each do |marker|%>
-       <%@countries.each do |country|%>
-          <%= link_to country_path(country.id)%>
-        <%end%>
-      <%end%>
-    </div>
+<div class="container-map">
+  <div
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  >
+  </div>
+  <div class="count_places">
+    <p class="count"> You have visited: <%= @my_visited_places.count %> of <%= @countries.count %> countries</p>
+    <p> See the countries you have visited:</p>
+    <i id="toggle-visited" class="fas fa-chevron-down"></i>
+     <div id="hiden-visited">
+      <ul>
+        <% @my_visited_places.sort.each do |country| %>
+          <li><%= link_to country.name, country_path(country) %></li>
+            <% end %>
+      </ul>
+     </div>
+     <i id="click-up" class="fas fa-chevron-up"></i>
+    <p class="count"> And you are currently planning on visiting: <%= @my_planned_places.count %> of <%= @countries.count %> countries</p>
+    <p> See the countries you want to visit:</p>
+     <div id="hiden-planned">
+      <ul>
+        <% @my_planned_places.sort.each do |country| %>
+          <li><%= link_to country.name, country_path(country) %></li>
+            <% end %>
+      </ul>
+     </div>
+  </div>
 </div>

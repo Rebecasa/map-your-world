@@ -2,8 +2,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 const mapElement = document.getElementById('map');
-const linkCountry = document.querySelectorAll('.link-to-country');
-const markerIcon = document.querySelectorAll('.mapboxgl-marker-anchor-center');
 
 
 if (mapElement) { // only build a map if there's a div#map to inject into
@@ -34,23 +32,13 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
 
-    markers.forEach((marker) => {
-      marker.addEventListener("click", (event) => {
-        linkCountry.forEach((link) =>{
-          if (marker.id === country.id) {
 
-        markerI.innerHTML += link.innerHTML
-          }
-        })
-
-      })
-  })
 
   markers.forEach((marker) => {
     new mapboxgl.Marker()
       .setLngLat([marker.lng, marker.lat])
-      // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-      .setHTML(marker.infoWindow.content)
+      .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(marker.infoWindow.content))
       .addTo(map);
   })
 }

@@ -12,7 +12,7 @@ if (mapElement2) { // only build a map if there's a div#map to inject into
     container: 'map-show',
     style: 'mapbox://styles/rebecasa/cjsahct1g06q21fqyo2xbzko4',
     center: [long, lat],
-    zoom: 9
+    zoom: 3
   });
 
   const markers = JSON.parse(mapElement2.dataset.markers);
