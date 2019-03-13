@@ -1,4 +1,4 @@
-
+<%= render 'shared/navbar' %>
 <div class="container-map">
   <div
     id="map"
@@ -6,26 +6,30 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   >
   </div>
-  <div class="count_places">
-    <p class="count"> You have visited: <%= @my_visited_places.count %> of <%= @countries.count %> countries</p>
-    <p> See the countries you have visited:</p>
-    <i id="toggle-visited" class="fas fa-chevron-down"></i>
-     <div id="hiden-visited">
-      <ul>
-        <% @my_visited_places.sort.each do |country| %>
-          <li><%= link_to country.name, country_path(country) %></li>
-            <% end %>
-      </ul>
-     </div>
-     <i id="click-up" class="fas fa-chevron-up"></i>
-    <p class="count"> And you are currently planning on visiting: <%= @my_planned_places.count %> of <%= @countries.count %> countries</p>
-    <p> See the countries you want to visit:</p>
-     <div id="hiden-planned">
-      <ul>
-        <% @my_planned_places.sort.each do |country| %>
-          <li><%= link_to country.name, country_path(country) %></li>
-            <% end %>
-      </ul>
-     </div>
+
+  <% if user_signed_in? %>
+    <div class="count_places">
+      <p class="count"> You have visited: <%= @my_visited_places.count %> of <%= @countries.count %> countries</p>
+      <p> See the countries you have visited:</p>
+      <i class="fas fa-chevron-down toggle-visited"></i>
+       <div class="hiden-visited">
+        <ul>
+          <% @my_visited_places.sort.each do |country| %>
+            <li class="country-list"><%= link_to country.name, country_path(country) %></li>
+              <% end %>
+        </ul>
+       </div>
+
+      <p class="count"> And you are currently planning on visiting: <%= @my_planned_places.count %> of <%= @countries.count %> countries</p>
+      <p> See the countries you want to visit:</p>
+      <i class="fas fa-chevron-down toggle-visited-2"></i>
+       <div class="hiden-planned">
+        <ul>
+          <% @my_planned_places.sort.each do |country| %>
+            <li class="country-list"><%= link_to country.name, country_path(country) %></li>
+              <% end %>
+        </ul>
+       </div>
+    </div>
   </div>
-</div>
+<% end %>

@@ -1,11 +1,22 @@
-const visited = document.getElementById('hiden-visited')
-const clickDown = document.getElementById('toggle-visited')
-const clickUp = document.getElementById('click-up')
-const planned = document.getElementById('hiden-planned')
+const visited = document.querySelectorAll('.hiden-visited');
+const clickDown1 = document.querySelectorAll('.toggle-visited');
+const clickDown2 = document.querySelectorAll('.toggle-visited-2');
+const planned = document.querySelectorAll('.hiden-planned');
 
- clickDown.addEventListener('click',function(){
-  visited.style.display = "block"
-  clickDown.style.display = "none"
-  clickUp.style.display = "block"
+clickDown1.forEach(function(clickD) {
+  clickD.addEventListener('click', function() {
+    visited.forEach(function(visit) {
+      clickD.classList.toggle("click-up")
+      visit.classList.toggle("show-visited")
+   })
+  })
+ })
 
+clickDown2.forEach(function(clickD2) {
+  clickD2.addEventListener('click', function() {
+    planned.forEach(function(plan) {
+      clickD2.classList.toggle("click-up")
+      plan.classList.toggle("show-visited")
+   })
+  })
  })
