@@ -11,9 +11,9 @@ class CountryController < ApplicationController
     @my_visited_places = []
     @my_planned_places = []
     @countries.each do |country|
-    @my_visited_places << country if country.visited?
-    @my_planned_places << country if country.planned?
-  end
+      @my_visited_places << country if country.visited? && country.user == current_user
+      @my_planned_places << country if country.planned? && country.user == current_user
+    end
   end
 
   def show
@@ -25,7 +25,6 @@ class CountryController < ApplicationController
     if @country.update(country_params)
       redirect_to @country
     end
-
   end
 
   def country_params
