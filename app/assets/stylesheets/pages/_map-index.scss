@@ -1,0 +1,52 @@
+.container-map {
+  display: flex;
+}
+
+.count_places {
+  padding: 50px 10px;
+  margin-left: 85px;
+}
+
+.count {
+  margin-top: 10px;
+}
+
+.country-list {
+  list-style-type: none;
+}
+
+.hiden-visited {
+  display: none;
+}
+
+.show-visited {
+  display: block !important;
+}
+
+.hiden-planned {
+  display: none;
+}
+
+.toggle-visited {
+  text-align: center;
+  margin-left: 20px;
+  transition: 1s;
+  &:hover {
+    cursor:pointer;
+  }
+}
+
+.toggle-visited-2 {
+  text-align: center;
+  margin-left: 20px;
+  transition: 1s;
+  &:hover {
+    cursor:pointer;
+  }
+}
+
+.click-up {
+  transform: rotate(180deg);
+}
+
+

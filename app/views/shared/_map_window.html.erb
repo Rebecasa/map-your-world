@@ -1,0 +1,20 @@
+<%= link_to country.name, country_path(country) %>
+<p>
+  Visited
+  <% if country.visited == true %>
+     <i class="fas fa-check-square"></i>
+   <% else %>
+    <i class="far fa-stop"></i>
+   <% end %>
+  </p>
+
+  <p>
+    Planning to visit?
+    <% if country.planned == true %>
+       <i class="fas fa-check-square"></i>
+     <% else %>
+      <i class="far fa-stop"></i>
+     <% end %>
+    </p>
+
+

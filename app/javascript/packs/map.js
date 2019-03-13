@@ -3,13 +3,13 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 const mapElement = document.getElementById('map');
 
+
 if (mapElement) { // only build a map if there's a div#map to inject into
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/rebecasa/cjsahct1g06q21fqyo2xbzko4'
   });
-    console.log(map);
 
   const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -31,6 +31,8 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     });
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
+
+
 
   markers.forEach((marker) => {
     new mapboxgl.Marker()

@@ -1,4 +1,3 @@
-<%= render 'shared/navbar' %>
 
 <div class="displayed-map">
   <div
@@ -10,9 +9,20 @@
    <div id="long"><%= @country.longitude%></div>
 
   <div class="my-visited-places">
-    <p class="count"> You have visited: <%= @my_visited_places.count %> of <%= @countries.count %> countries</p>
+    <h2><%= @country.name.capitalize %></h2>
     <div class ="visited">
-      <p><%="Have you visited #{@country.name}?" %></p>
+      <div class="form-group">
+      <%= form_for(@country) do |f| %>
+       <%= f.label :visited %>
+       <%= f.check_box :visited %>
+      </div>
+      <div class="form-group">
+       <%= f.label :planned %>
+       <%= f.check_box :planned %>
+      </div>
+       <%=f.submit  %>
+       <% end %>
     </div>
+    <%= link_to "Back to countries", root_path  %>
   </div>
 </div>
